@@ -39,10 +39,4 @@ module.exports = {
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
-  compilerOptions: {
-    baseUrl: ".",
-    paths: {
-      "@/components/*": ["components/*"],
-    },
-  },
 };
