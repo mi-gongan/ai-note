@@ -1,5 +1,7 @@
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "ai note",
@@ -14,10 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="h-8" data-testid="header">
-          header
-        </div>
-        {children}
+        <Providers>
+          {children}
+          <div id="modal-root" />
+        </Providers>
       </body>
     </html>
   );
