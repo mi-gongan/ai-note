@@ -1,15 +1,10 @@
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./api/auth/[...nextauth]/route";
-import Box from "@/components/Box";
-import LeftNavigation from "@/components/layout/LeftNavigation";
-import MainDropzone from "@/components/MainDropzone";
-import ModalButton from "@/components/ModalButton";
+import { authOptions } from "./api/auth/[...nextauth]/option";
 import Header from "@/components/layout/Header";
-import LogoutButton from "@/components/LogoutButton";
 import Image from "next/image";
 import CustomButton from "@/components/common/CustomButton";
 
-export async function getData() {
+async function getData() {
   const session = await getServerSession(authOptions);
   if (!session) {
     return {
