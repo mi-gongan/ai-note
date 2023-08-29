@@ -37,7 +37,8 @@ function LeftNavigation({ open, onClose }: LeftNavigationProps) {
           <motion.div
             className={cls(
               "w-[240px] h-[100vh] bg-gray1",
-              "relative top-[-52px]"
+              "md:relative md:top-[-52px]",
+              "absolute top-0 left-0 z-10"
             )}
             initial={{
               opacity: 0,

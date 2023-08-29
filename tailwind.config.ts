@@ -16,6 +16,9 @@ const config: Config = {
       textColor: {
         primary: "#252525",
       },
+      fontFamily: {
+        rota: ["Rota"],
+      },
     },
   },
   plugins: [],
