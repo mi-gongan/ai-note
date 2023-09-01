@@ -4,17 +4,17 @@ import { cls } from "@/utils/style";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import UploadIcon from "../../icon/UploadIcon";
+import { useDispatch } from "react-redux";
+import { uploadFile } from "@/redux/slice/upload";
 
-interface FileDropzoneProps {
-  setFile: React.Dispatch<React.SetStateAction<File | null>>;
-}
+function FileDropzone() {
+  const dispatch = useDispatch();
 
-function FileDropzone({ setFile }: FileDropzoneProps) {
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
-      setFile(acceptedFiles[0]);
+      dispatch(uploadFile(acceptedFiles[0]));
     },
-    [setFile]
+    [dispatch]
   );
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });

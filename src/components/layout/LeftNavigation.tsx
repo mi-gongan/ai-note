@@ -38,7 +38,7 @@ function LeftNavigation({ open, onClose }: LeftNavigationProps) {
             className={cls(
               "w-[240px] h-[100vh] bg-gray1",
               "md:relative md:top-[-52px]",
-              "absolute top-0 left-0 z-10"
+              "absolute top-0 left-0"
             )}
             initial={{
               opacity: 0,
