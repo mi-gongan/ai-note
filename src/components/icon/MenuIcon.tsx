@@ -9,13 +9,13 @@ function MenuIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_49_1603)">
+      <g clipPath="url(#clip0_49_1603)">
         <path
           d="M5.16671 24.334L26.8334 24.334M5.16671 16.0007L26.8334 16.0007M5.1667 7.66732L26.8334 7.66732"
           stroke="#727580"
-          stroke-width="1.58333"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.58333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

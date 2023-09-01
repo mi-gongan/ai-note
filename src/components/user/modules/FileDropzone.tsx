@@ -3,7 +3,7 @@
 import { cls } from "@/utils/style";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import UploadIcon from "./icon/UploadIcon";
+import UploadIcon from "../../icon/UploadIcon";
 
 interface FileDropzoneProps {
   setFile: React.Dispatch<React.SetStateAction<File | null>>;
@@ -17,7 +17,7 @@ function FileDropzone({ setFile }: FileDropzoneProps) {
     [setFile]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
     <div
@@ -29,21 +29,12 @@ function FileDropzone({ setFile }: FileDropzoneProps) {
       )}
     >
       <input {...getInputProps()} />
-      {/* {isDragActive ? (
-        <div className="flex justify-center items-center flex-col gap-3">
-          <UploadIcon />
-          <div className="text-[#9A9B9C] font-[600] text-[18px]">
-            Add file or drop your files here
-          </div>
-        </div>
-      ) : ( */}
       <div className="flex justify-center items-center flex-col gap-3">
         <UploadIcon />
         <div className="text-[#9A9B9C] font-[600] md:text-[18px] text-[14px]">
           Add file or drop your files here
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 }

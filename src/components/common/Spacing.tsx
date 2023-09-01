@@ -1,9 +1,5 @@
+import { SpacingDirection } from "@/utils/style";
 import React, { HTMLAttributes } from "react";
-
-export enum SpacingDirection {
-  HORIZONTAL = "horizontal",
-  VERTICAL = "vertical",
-}
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   direction?: SpacingDirection;

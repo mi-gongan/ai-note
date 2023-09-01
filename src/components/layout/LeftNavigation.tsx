@@ -5,8 +5,8 @@ import { useSession } from "next-auth/react";
 import { AnimatePresence, Reorder } from "framer-motion";
 import { motion } from "framer-motion";
 import LeftCloseButtonIcon from "@/components/icon/LeftCloseButtonIcon";
-import Spacing, { SpacingDirection } from "@/components/common/Spacing";
-import { cls } from "@/utils/style";
+import Spacing from "@/components/common/Spacing";
+import { SpacingDirection, cls } from "@/utils/style";
 import Image from "next/image";
 
 interface LeftNavigationProps {
