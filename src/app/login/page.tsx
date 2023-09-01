@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import SessionCheck from "@/components/common/SessionCheck";
+import { RouterPath } from "@/utils/router";
 
 function Login() {
   const router = useRouter();
@@ -16,6 +18,7 @@ function Login() {
 
   return (
     <>
+      <SessionCheck path={RouterPath.LOGIN} />
       <button onClick={() => signIn()}>Sign in</button>
     </>
   );

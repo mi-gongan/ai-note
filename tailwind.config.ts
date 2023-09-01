@@ -19,6 +19,9 @@ const config: Config = {
       fontFamily: {
         rota: ["Rota"],
       },
+      screens: {
+        xs: "440px",
+      },
     },
   },
   plugins: [],

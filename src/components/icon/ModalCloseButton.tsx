@@ -1,6 +1,8 @@
-import React from "react";
+import React, { SVGProps } from "react";
 
-function ModalCloseButton() {
+interface ModalCloseButtonProps extends SVGProps<SVGSVGElement> {}
+
+function ModalCloseButton({ ...props }: ModalCloseButtonProps) {
   return (
     <svg
       width="31"
@@ -8,6 +10,8 @@ function ModalCloseButton() {
       viewBox="0 0 31 31"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="cursor-pointer"
+      {...props}
     >
       <rect
         x="0.428711"

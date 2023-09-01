@@ -12,16 +12,16 @@ function LeftCloseButtonIcon() {
       <path
         d="M14.0001 5.83203L5.83342 13.9987L14.0001 22.1654"
         stroke="#727580"
-        stroke-width="1.48485"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.48485"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M22.1668 5.83203L14.0001 13.9987L22.1668 22.1654"
         stroke="#727580"
-        stroke-width="1.48485"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.48485"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

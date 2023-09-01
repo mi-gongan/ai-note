@@ -1,44 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Session } from "next-auth";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import LeftNavigation from "./LeftNavigation";
 import MenuIcon from "../icon/MenuIcon";
 import { cls } from "@/utils/style";
+import SessionCheck from "../common/SessionCheck";
 
-interface RedirectProps {
-  sessionInfo:
-    | {
-        redirect: {
-          destination: string;
-          permanent: boolean;
-        };
-        props?: undefined;
-      }
-    | {
-        props: {
-          session: Session;
-        };
-        redirect?: undefined;
-      };
-  children: React.ReactNode;
-}
-
-function Header({ sessionInfo, children }: RedirectProps) {
-  const router = useRouter();
+function Header({ children }: { children?: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (!router) return;
-    if (
-      sessionInfo &&
-      sessionInfo.redirect &&
-      sessionInfo.redirect.destination
-    ) {
-      router.push(sessionInfo.redirect.destination);
-    }
-  }, [sessionInfo, router]);
 
   return (
     <>

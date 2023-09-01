@@ -5,8 +5,8 @@ import { useSession } from "next-auth/react";
 import { AnimatePresence, Reorder } from "framer-motion";
 import { motion } from "framer-motion";
 import LeftCloseButtonIcon from "@/components/icon/LeftCloseButtonIcon";
-import Spacing, { SpacingDirection } from "@/components/common/Spacing";
-import { cls } from "@/utils/style";
+import Spacing from "@/components/common/Spacing";
+import { SpacingDirection, cls } from "@/utils/style";
 import Image from "next/image";
 
 interface LeftNavigationProps {
@@ -38,7 +38,7 @@ function LeftNavigation({ open, onClose }: LeftNavigationProps) {
             className={cls(
               "w-[240px] h-[100vh] bg-gray1",
               "md:relative md:top-[-52px]",
-              "absolute top-0 left-0 z-10"
+              "absolute top-0 left-0"
             )}
             initial={{
               opacity: 0,
