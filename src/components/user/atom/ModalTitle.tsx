@@ -5,9 +5,9 @@ function ModalTitle({ text }: { text: string }) {
   return (
     <div
       className={cls(
-        "text-primary font-[800] pr-6",
-        "md:text-[38px]",
-        "sm:text-[32px]",
+        "text-primary font-[700] pr-6",
+        "md:text-[30px] leading-[30px]",
+        "sm:text-[30px]",
         "text-[24px]"
       )}
     >

@@ -9,15 +9,25 @@ import WelcomeText from "./organism/WelcomeText";
 
 function UserTemplate() {
   const [open, setOpen] = useState(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
   return (
     <>
       <div className="flex justify-center items-center flex-col leading-12">
         <Spacing size={80} />
         <WelcomeText />
         <RobotImage />
-        <UploadButton setOpen={setOpen} />
+        <UploadButton openModal={openModal} />
       </div>
-      <UploadModal open={open} setOpen={setOpen} />
+      <UploadModal
+        open={open}
+        closeModal={() => {
+          setOpen(false);
+        }}
+      />
     </>
   );
 }

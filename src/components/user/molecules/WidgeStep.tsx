@@ -18,9 +18,9 @@ function WidgetStep({ onNext, onPrev }: WidgetStepProps) {
   return (
     <>
       <ModalTitle text="Create your custom dashboard\nby selecting the widgets you want" />
-      <Spacing size={12} />
+      <Spacing size={10} />
       <ModalSubText text="Create your own AI note with the combination of desired widgets" />
-      <div className="md:h-[40px] h-[20px]" />
+      <div className="md:h-[30px] h-[20px]" />
       <WidgetChooseBox />
       <div className="md:h-[40px] h-[40px]" />
       <StepControl

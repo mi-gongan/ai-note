@@ -5,7 +5,7 @@ function RobotImage() {
   return (
     <div className="xl:w-[727px] md:w-[500px] w-[100%] max-w-[500px]">
       <Image
-        src={"/imgs/robot.svg"}
+        src={"/imgs/robot-background.png"}
         width={727}
         height={449}
         alt="robot"

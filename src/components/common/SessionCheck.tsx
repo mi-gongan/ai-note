@@ -15,9 +15,9 @@ function SessionCheck({ path = RouterPath.HOME, username }: SessionCheckProps) {
   const { data: session, update, status } = useSession();
 
   useEffect(() => {
-    if (!router) return;
+    if (!router || session === undefined) return;
 
-    if (!session) {
+    if (session === null) {
       if (path === RouterPath.LOGIN) return;
       router.push("/login");
       return;
@@ -28,9 +28,9 @@ function SessionCheck({ path = RouterPath.HOME, username }: SessionCheckProps) {
       if (path === RouterPath.LOGIN || path === RouterPath.HOME) {
         router.push("/" + session.user.name);
       } else if (path === RouterPath.NOTE) {
-        if (username && session.user.name !== username) {
+        if (username && encodeURIComponent(session.user.name) !== username) {
           // session valid but username is incorrect
-          router.push("/" + session.user.name);
+          router.push("/" + encodeURIComponent(session.user.name));
         }
       }
     } else {
