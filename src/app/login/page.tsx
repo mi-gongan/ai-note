@@ -41,7 +41,7 @@ function Login() {
             src={"/imgs/robot-asset.png"}
             width={175}
             height={230}
-            alt="sd"
+            alt="robot"
           />
         </motion.div>
         <div
