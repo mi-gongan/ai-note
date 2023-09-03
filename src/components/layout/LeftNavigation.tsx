@@ -20,7 +20,6 @@ interface LeftNavigationProps {
 }
 
 function LeftNavigation({ open, onClose }: LeftNavigationProps) {
-  const router = useRouter();
   const { data: session } = useSession();
   const dispatch = useDispatch<any>();
   const data = useSelector(noteData);

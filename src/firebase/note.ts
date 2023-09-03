@@ -8,6 +8,7 @@ import {
   query,
   where,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 
 export type NoteDataType = {
@@ -72,5 +73,21 @@ export class NoteDB {
     } else {
       throw Error("no data");
     }
+  };
+
+  static updateWidget = async (noteId: string, widget: number[]) => {
+    const noteRef = doc(db, "note", noteId);
+    await setDoc(
+      noteRef,
+      {
+        widget,
+      },
+      { merge: true }
+    );
+  };
+
+  static deleteNote = async (noteId: string) => {
+    const noteRef = doc(db, "note", noteId);
+    await deleteDoc(noteRef);
   };
 }

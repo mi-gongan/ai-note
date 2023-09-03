@@ -2,7 +2,6 @@ import React from "react";
 import ModalTitle from "../atom/ModalTitle";
 import Spacing from "@/components/common/Spacing";
 import ModalSubText from "../atom/ModalSubText";
-import { cls } from "@/utils/style";
 import StepControl from "./StepControl";
 import WidgetChooseBox from "../atom/WidgetChooseBox";
 import { selectWidget } from "@/redux/slice/upload";

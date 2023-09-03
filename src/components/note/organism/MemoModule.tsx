@@ -3,7 +3,11 @@ import ModuleControlBar from "../molecules/ModuleControlBar";
 import NoteLine from "../atom/NoteLine";
 import { cls } from "@/utils/style";
 
-function MemoModule() {
+interface MemoModuleProps {
+  deleteMemeoWidget: () => void;
+}
+
+function MemoModule({ deleteMemeoWidget }: MemoModuleProps) {
   const textRef = useRef(null);
   const [text, setText] = useState("");
   return (
@@ -13,7 +17,7 @@ function MemoModule() {
         "w-[100%] h-[390px] relative"
       )}
     >
-      <ModuleControlBar title="🗒️ Memo" />
+      <ModuleControlBar title="🗒️ Memo" deleteTrigger={deleteMemeoWidget} />
       <div className="px-[20px] h-[calc(100%-66px)]">
         <NoteLine />
         <textarea

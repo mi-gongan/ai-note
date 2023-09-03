@@ -9,7 +9,7 @@ const categories = [
   "Class",
   "Lab",
   "Project",
-  "Study Guide",
+  "1:1 Conversation",
   "Other",
 ];
 function CategoryChooseBox() {

@@ -16,6 +16,7 @@ interface UploadStepProps {
 
 function UploadStep({ onClose, onNext }: UploadStepProps) {
   const file = useSelector(selectFile);
+
   return (
     <>
       <ModalTitle text="Please upload your recording file" />
