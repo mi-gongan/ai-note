@@ -13,6 +13,7 @@ declare global {
       NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: string;
       NEXT_PUBLIC_FIREBASE_MESSAGE_SENDER_ID: string;
       NEXT_PUBLIC_FIREBASE_APP_ID: string;
+      NEXT_PUBLIC_SERVER_URL: string;
       SERVER_URL: string;
     }
   }

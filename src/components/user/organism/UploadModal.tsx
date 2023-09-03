@@ -10,7 +10,7 @@ import WidgeStep from "../molecules/WidgeStep";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import axios from "axios";
-import { NoteClass } from "@/firebase/note";
+import { NoteDB } from "@/firebase/note";
 import { generateRandomString } from "@/utils/hash";
 import { fetchNoteData } from "@/redux/slice/note";
 import LoadingScreen from "@/components/common/LoadingScreen";
@@ -51,7 +51,7 @@ function UploadModal({
       await axios.post<{
         summary_text: string;
       }>(
-        "/server/audio",
+        process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
         {
           audio_file: file,
         },
@@ -63,7 +63,7 @@ function UploadModal({
       )
     ).data;
     const noteId = generateRandomString(25);
-    await NoteClass.setNote(
+    await NoteDB.setNote(
       session.user.email,
       noteId,
       resonseData.summary_text,

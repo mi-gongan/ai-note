@@ -1,4 +1,4 @@
-import { NoteClass, NoteDataType } from "@/firebase/note";
+import { NoteDB, NoteDataType } from "@/firebase/note";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Spacing from "../common/Spacing";
@@ -14,7 +14,7 @@ function NoteTemplate() {
   const [noteData, setNoteData] = useState<NoteDataType>();
 
   useEffect(() => {
-    NoteClass.getNoteById(note as string)
+    NoteDB.getNoteById(note as string)
       .then((data) => {
         setNoteData(data);
       })

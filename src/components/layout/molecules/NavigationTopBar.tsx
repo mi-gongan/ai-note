@@ -23,6 +23,7 @@ function NavigationTopBar({ onClose, userInfo }: NavigationTopBarProps) {
             width={24}
             height={24}
             className="rounded-full border border-white"
+            priority={true}
           />
         ) : (
           <div className="w-6 h-6 bg-gray-300 rounded-full border border-white" />

@@ -38,10 +38,11 @@ function Login() {
           }}
         >
           <Image
-            src={"/imgs/robot-asset.png"}
+            src={"/imgs/robot-asset.webp"}
             width={175}
             height={230}
             alt="robot"
+            priority={true}
           />
         </motion.div>
         <div

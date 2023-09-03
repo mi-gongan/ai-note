@@ -4,10 +4,10 @@ const nextConfig = {
     domains: ["lh3.googleusercontent.com"],
   },
   rewrites: async () => [
-    {
-      source: "/server/:path*",
-      destination: process.env.SERVER_URL + `/:path*`,
-    },
+    // {
+    //   source: "/server/:path*",
+    //   destination: process.env.SERVER_URL + `/:path*`,
+    // },
   ],
 };
 

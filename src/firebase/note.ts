@@ -18,7 +18,7 @@ export type NoteDataType = {
   widget: number[];
 };
 
-export class NoteClass {
+export class NoteDB {
   static setNote = async (
     userEmail: string,
     noteId: string,

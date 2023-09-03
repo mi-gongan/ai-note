@@ -1,11 +1,11 @@
-import { NoteClass } from "@/firebase/note";
+import { NoteDB } from "@/firebase/note";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchNoteData = createAsyncThunk(
   "noteSlice/fetchNoteData",
   async (userEmail: string) => {
     try {
-      const noteArray = await NoteClass.getNoteByEmail(userEmail);
+      const noteArray = await NoteDB.getNoteByEmail(userEmail);
       return noteArray;
     } catch (error) {
       throw error;
