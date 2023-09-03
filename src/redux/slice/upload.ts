@@ -1,3 +1,4 @@
+import { generateRandomString } from "@/utils/hash";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
@@ -38,7 +39,7 @@ export const uploadSlice = createSlice({
       state.file = null;
       state.title = "";
       state.category = null;
-      state.widget = [];
+      state.widget = [0, 1];
     },
   },
 });
@@ -64,11 +65,11 @@ export const submitForm = (state: { upload: UploadState }) => {
   if (state.upload.title === "") return null;
   if (state.upload.category === null) return null;
   if (state.upload.widget.length === 0) return null;
-  const formData = new FormData();
-  formData.append("file", state.upload.file);
-  formData.append("title", state.upload.title);
-  formData.append("category", state.upload.category);
-  formData.append("widget", state.upload.widget.join(","));
+  const formData = {
+    title: state.upload.title,
+    category: state.upload.category,
+    widget: state.upload.widget,
+  };
   return formData;
 };
 

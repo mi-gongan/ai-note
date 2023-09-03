@@ -4,18 +4,11 @@ import React from "react";
 import CustomButton from "../../common/CustomButton";
 
 interface UploadButtonProps {
-  setOpen: (open: boolean) => void;
+  openModal: () => void;
 }
 
-function UploadButton({ setOpen }: UploadButtonProps) {
-  return (
-    <CustomButton
-      text="Upload"
-      handleClick={() => {
-        setOpen(true);
-      }}
-    />
-  );
+function UploadButton({ openModal }: UploadButtonProps) {
+  return <CustomButton text="Upload" handleClick={openModal} />;
 }
 
 export default UploadButton;

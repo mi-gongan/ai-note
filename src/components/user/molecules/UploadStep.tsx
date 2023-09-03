@@ -19,19 +19,19 @@ function UploadStep({ onClose, onNext }: UploadStepProps) {
   return (
     <>
       <ModalTitle text="Please upload your recording file" />
-      <Spacing size={12} />
+      <Spacing size={10} />
       <ModalSubText text="File should be MP3, MP4" />
-      <div className="md:h-[40px] h-[20px]" />
+      <div className="md:h-[30px] h-[20px]" />
       <div
         className={cls(
           "w-[820px] max-w-[calc(100%-26px)]",
-          file === null ? "h-[420px]" : "h-[200px]"
+          file === null ? "h-[360px]" : "h-[180px]"
         )}
       >
         <FileDropzone />
       </div>
       {file && <FileInfo file={file} />}
-      <div className="md:h-[80px] h-[60px]" />
+      <div className="h-[30px]" />
       <StepControl
         onNext={onNext}
         onPrev={onClose}

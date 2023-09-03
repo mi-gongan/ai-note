@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import uploadReducer from "./slice/upload";
+import noteReducer from "./slice/note";
 
 export const store = configureStore({
   reducer: {
     upload: uploadReducer,
+    note: noteReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

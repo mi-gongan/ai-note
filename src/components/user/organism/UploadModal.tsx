@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import CustonModal from "../../common/CustonModal";
 import { cls } from "@/utils/style";
 import UploadStep from "../molecules/UploadStep";
-import ModalCloseButton from "@/components/icon/ModalCloseButton";
+import CloseButton from "@/components/icon/CloseButton";
 import { useDispatch, useSelector } from "react-redux";
-import { resetUpload, submitForm } from "@/redux/slice/upload";
+import { resetUpload, selectFile, submitForm } from "@/redux/slice/upload";
 import CategoryStep from "../molecules/CategoryStep";
 import WidgeStep from "../molecules/WidgeStep";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import axios from "axios";
+import { NoteDB } from "@/firebase/note";
+import { generateRandomString } from "@/utils/hash";
+import { fetchNoteData } from "@/redux/slice/note";
+import LoadingScreen from "@/components/common/LoadingScreen";
 
 enum Step {
   UPLOAD,
@@ -16,27 +23,56 @@ enum Step {
 
 function UploadModal({
   open,
-  setOpen,
+  closeModal,
 }: {
   open: boolean;
-  setOpen: (open: boolean) => void;
+  closeModal: () => void;
 }) {
+  const router = useRouter();
+
+  const { data: session } = useSession();
   const [step, setStep] = useState<Step>(Step.UPLOAD);
-  const subitForm = useSelector(submitForm);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
+  const file = useSelector(selectFile);
+  const submitData = useSelector(submitForm);
+  const [loading, setLoading] = useState(false);
 
   const onClose = () => {
-    setOpen(false);
+    closeModal();
     setStep(Step.UPLOAD);
     dispatch(resetUpload());
   };
 
-  const onComplte = () => {
-    console.log(subitForm?.get("file"));
-    console.log(subitForm?.get("title"));
-    console.log(subitForm?.get("category"));
-    console.log(subitForm?.get("widget"));
+  const onComplte = async () => {
+    if (!session || !session.user || !session.user.name || !session.user.email)
+      return;
+    setLoading(true);
+    const resonseData = (
+      await axios.post<{
+        summary_text: string;
+      }>(
+        process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
+        {
+          audio_file: file,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+    ).data;
+    const noteId = generateRandomString(25);
+    await NoteDB.setNote(
+      session.user.email,
+      noteId,
+      resonseData.summary_text,
+      submitData
+    );
+    dispatch(fetchNoteData(session.user.email));
+    router.push("/" + encodeURIComponent(session.user.name) + "/" + noteId);
   };
+
   return (
     <CustonModal
       open={open}
@@ -44,9 +80,10 @@ function UploadModal({
       borderRadius="rounded-[20px]"
       onClose={onClose}
     >
+      {loading && <LoadingScreen />}
       <div className={cls("font-rota pt-[18px] pb-[33px] pl-[40px] pr-[14px]")}>
         <div className="flex justify-end">
-          <ModalCloseButton onClick={onClose} />
+          <CloseButton onClick={onClose} />
         </div>
         {step === Step.UPLOAD && (
           <UploadStep onClose={onClose} onNext={() => setStep(Step.CATEGORY)} />

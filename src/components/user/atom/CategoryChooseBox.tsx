@@ -5,8 +5,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const categories = [
-  "Class",
   "Lecture",
+  "Class",
   "Lab",
   "Project",
   "Study Guide",

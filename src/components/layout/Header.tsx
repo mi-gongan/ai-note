@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import LeftNavigation from "./LeftNavigation";
 import MenuIcon from "../icon/MenuIcon";
 import { cls } from "@/utils/style";
-import SessionCheck from "../common/SessionCheck";
 
 function Header({ children }: { children?: React.ReactNode }) {
   const [open, setOpen] = useState(false);

@@ -19,9 +19,9 @@ function CategoryStep({ onNext, onPrev }: CategoryStepProps) {
   return (
     <>
       <ModalTitle text="Enter the title and category of the note" />
-      <Spacing size={12} />
+      <Spacing size={10} />
       <ModalSubText text="For a more accurate note summary, please be sure to select a category!" />
-      <div className="md:h-[40px] h-[20px]" />
+      <div className="md:h-[30px] h-[20px]" />
       <div className="text-[20px] font-[600]">Title</div>
       <Spacing size={14} />
       <FileTitleInput />
@@ -31,7 +31,7 @@ function CategoryStep({ onNext, onPrev }: CategoryStepProps) {
       </div>
       <Spacing size={14} />
       <CategoryChooseBox />
-      <div className="md:h-[120px] h-[80px]" />
+      <div className="md:h-[80px] h-[60px]" />
       <StepControl
         onNext={onNext}
         onPrev={onPrev}

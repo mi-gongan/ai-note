@@ -1,8 +1,8 @@
 import React, { SVGProps } from "react";
 
-interface ModalCloseButtonProps extends SVGProps<SVGSVGElement> {}
+interface CloseButtonProps extends SVGProps<SVGSVGElement> {}
 
-function ModalCloseButton({ ...props }: ModalCloseButtonProps) {
+function CloseButton({ ...props }: CloseButtonProps) {
   return (
     <svg
       width="31"
@@ -28,4 +28,4 @@ function ModalCloseButton({ ...props }: ModalCloseButtonProps) {
   );
 }
 
-export default ModalCloseButton;
+export default CloseButton;
