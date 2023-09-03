@@ -3,7 +3,11 @@ import ModuleControlBar from "../molecules/ModuleControlBar";
 import { cls } from "@/utils/style";
 import SmallRobot from "../../icon/SmallRobot";
 
-function AIChatBotModule() {
+interface AIChatBotModuleProps {
+  deleteChatbotWidget: () => void;
+}
+
+function AIChatBotModule({ deleteChatbotWidget }: AIChatBotModuleProps) {
   return (
     <div
       className={cls(
@@ -11,7 +15,10 @@ function AIChatBotModule() {
         "w-[100%] h-[290px] relative"
       )}
     >
-      <ModuleControlBar title="🤖 AI chat bot" />
+      <ModuleControlBar
+        title="🤖 AI chat bot"
+        deleteTrigger={deleteChatbotWidget}
+      />
       <div className="px-[20px]">
         <div className="flex gap-[10px] pt-6">
           <SmallRobot />

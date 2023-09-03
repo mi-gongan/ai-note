@@ -5,9 +5,11 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import UploadIcon from "../../icon/UploadIcon";
 import { useDispatch } from "react-redux";
-import { uploadFile } from "@/redux/slice/upload";
+import { selectFile, uploadFile, uploadTestFile } from "@/redux/slice/upload";
+import { useSelector } from "react-redux";
 
 function FileDropzone() {
+  const file = useSelector(selectFile);
   const dispatch = useDispatch();
 
   const onDrop = useCallback(
@@ -44,9 +46,21 @@ function FileDropzone() {
       <input {...getInputProps()} accept=".mp3,.mp4" />
       <div className="flex justify-center items-center flex-col gap-3">
         <UploadIcon />
-        <div className="text-[#9A9B9C] font-[600] md:text-[18px] text-[14px]">
+        <div className="text-[#9A9B9C] font-[600] md:text-[18px] text-[14px] flex flex-col gap-4 relative">
           Add file or drop your files here
+          {!file && (
+            <div
+              className="flex justify-center bg-primary rounded-md w-[90%] left-[50%] -translate-x-1/2 text-white absolute z-20 top-16 py-[8px]"
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch(uploadTestFile());
+              }}
+            >
+              Test file 사용하기
+            </div>
+          )}
         </div>
+        {!file && <div className="h-16"></div>}
       </div>
     </div>
   );

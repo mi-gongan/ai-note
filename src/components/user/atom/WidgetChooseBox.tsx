@@ -10,6 +10,7 @@ const widgetList = [
     title: "Summary Note 📑",
     description:
       "AI summary notes provide concise summaries to facilitate effective learning of essential information.",
+    essential: true,
   },
   {
     id: 1,
@@ -19,14 +20,15 @@ const widgetList = [
   },
   {
     id: 2,
-    title: "Past exam questions 📂",
-    description:
-      "Analyze the content of the files and find related past exam questions.",
+    title: "Memo 📝",
+    description: "You can write as you wish.",
   },
   {
     id: 3,
-    title: "Handwritten Note 📝",
-    description: "You can write as you wish.",
+    title: "Past exam questions 📂",
+    description:
+      "Analyze the content of the files and find related past exam questions.",
+    disabled: true,
   },
 ];
 
@@ -49,13 +51,16 @@ function WidgetChooseBox() {
               "h-[208px] rounded-[24px]",
               "py-[20px] px-[14px]",
               "border",
-              selectWidgetList.includes(widget.id)
+              widget.disabled === true
+                ? "opacity-[0.6]"
+                : selectWidgetList.includes(widget.id)
                 ? "bg-[#F6F7FA] border-primary"
                 : "border-[#DFE3E9]",
               "text-[14px] text-primary font-[600]",
               "cursor-pointer"
             )}
             onClick={() => {
+              if (widget.disabled || widget.essential) return;
               if (selectWidgetList.includes(widget.id)) {
                 dispatch(
                   setWidget(

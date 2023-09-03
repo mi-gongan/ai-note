@@ -1,9 +1,14 @@
-import { generateRandomString } from "@/utils/hash";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+export type TestFileType = {
+  type: string;
+  name: string;
+  size: number;
+};
+
 export interface UploadState {
-  file: File | null;
+  file: File | null | TestFileType;
   title: string;
   category: string | null;
   widget: number[];
@@ -22,6 +27,13 @@ export const uploadSlice = createSlice({
   reducers: {
     uploadFile: (state, action: PayloadAction<File>) => {
       state.file = action.payload;
+    },
+    uploadTestFile: (state) => {
+      state.file = {
+        type: "test",
+        name: "예송 논쟁에 대하여",
+        size: 5000000,
+      };
     },
     deleteFile: (state) => {
       state.file = null;
@@ -51,6 +63,7 @@ export const {
   setTitle,
   setCategory,
   setWidget,
+  uploadTestFile,
 } = uploadSlice.actions;
 
 export const selectFile = (state: { upload: UploadState }) => state.upload.file;

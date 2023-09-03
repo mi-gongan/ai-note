@@ -1,11 +1,11 @@
-import { deleteFile } from "@/redux/slice/upload";
+import { TestFileType, deleteFile } from "@/redux/slice/upload";
 import { getByteSize } from "@/utils/number";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
 import { useDispatch } from "react-redux";
 
 interface FileInfoProps {
-  file: File;
+  file: File | TestFileType;
 }
 
 function FileInfo({ file }: FileInfoProps) {
