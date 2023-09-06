@@ -59,14 +59,14 @@ function UploadModal({
         await axios.post<{
           summary_text: string;
         }>(
-          // process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
-          "/server" + "/audio",
+          process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
           {
             audio_file: file,
           },
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              "Access-Control-Allow-Origin": "*",
             },
           }
         )
