@@ -59,7 +59,8 @@ function UploadModal({
         await axios.post<{
           summary_text: string;
         }>(
-          process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
+          // process.env.NEXT_PUBLIC_SERVER_URL + "/audio",
+          "/server" + "/audio",
           {
             audio_file: file,
           },
